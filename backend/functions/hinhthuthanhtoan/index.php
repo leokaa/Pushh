@@ -47,6 +47,7 @@ EOT;
                             }
 
                         ?>
+                        <a href="create.php">Thêm dữ liệu</a>
                         <table border="1">
                             <tr>
                                 <th>Mã</th>
@@ -55,10 +56,12 @@ EOT;
                             </tr>
                             <?php   foreach($data as $tt): ?>
                                 <tr>
+
                                     <td> <?= $tt['httt_ma'] ?></td>
                                     <td> <?= $tt['httt_ten'] ?></td>
                                     <td>
                                         <a href="delete.php?httt_ma=<?= $tt['httt_ma'];?>">Xóa</a>
+                                        <a href="edit.php?httt_ma=<?= $tt['httt_ma'];?>">sửa</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
