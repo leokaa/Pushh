@@ -15,7 +15,7 @@
    <?php
     include_once( __DIR__ . '/../layouts/partials/header.php');
    ?> 
-    <!-- Phần header -->
+    <!-- header -->
 
 
     <!-- Phần sidebar -->
@@ -30,17 +30,18 @@
                 </div>
                 <div class="col-md-8">
                     Nội dụngggg
+                    
                 </div>
             </div>
         </div>
-    <!-- Phần sidebar -->
+    <!-- sidebar -->
     
     
     <!-- Phần footer -->
    <?php
     include_once( __DIR__ . '/../layouts/partials/footer.php');
    ?> 
-    <!-- Phần header -->
+    <!-- header -->
     
   
 

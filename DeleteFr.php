@@ -38,7 +38,6 @@ EOT;
                 <td>
                     <a href="Delete.php?httt_ma=<?= $tt['Ma'];?>">Xóa</a>
                    
-                    <a href="UpdateSL.php?httt_ma=<?= $tt['Ma'];?>">Sửa</a>
                 </td>
             </tr>
         <?php endforeach ?>
