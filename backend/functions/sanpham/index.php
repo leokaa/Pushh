@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sản phẩm</title>
 
     <?php
          include_once( __DIR__ . '/../../layouts/style.php');
     ?>
-</head>
+
+    <link href="/Pushh/assects/vendor/DataTables/datatables.min.css" type="text/css" rel="stylesheet"></head>
+    <link href="/Pushh/assects/vendor/DataTables/Buttons-1.6.3/css/buttons.bootstrap4.min.css" type="text/css" rel="stylesheet"></head>
 <body>
     <!-- Phần header -->
         <?php
@@ -76,9 +78,10 @@ EOT;
                             <a href="create.php">Thêm dữ liệu</a>
                         </button>
 
-                        <table class="table" border="1">
-                            <tr>
+                        <table id="Datatables" class="table" border="1">
                             <thead class="thead-dark">
+                            <tr>
+                           
                                 <th>Mã sản phẩm</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá sản phẩm</th>
@@ -86,8 +89,10 @@ EOT;
                                 <th>Nhà sản xuất</th>
                                 <th>Khuyến mãi</th>
                                 <th>Thực thi</th>
-                            </thead>
+                           
                             </tr>
+                            </thead>
+                            <tbody>
                             <?php   foreach($data as $sanpham): ?>
                                 <tr>
                                     <td> <?= $sanpham['sp_ma'] ?></td>
@@ -97,11 +102,11 @@ EOT;
                                     <td> <?= $sanpham['nsx_ten'] ?></td>
                                     <td> <?= $sanpham['km_tomtat'] ?></td>
                                     <td>
-                                        <a href="delete.php?sp_ma=<?= $sanpham['sp_ma'];?>">Xóa</a>
-                                        <a href="edit.php?sp_ma=<?= $sanoham['sp_ma'];?>">sửa</a>
-                                    </td>
+                                        <a href="edit.php?sp_ma=<?= $sanpham['sp_ma'];?>">Sửa</a>
+                                        <button class="btn btn-danger btnDelete" data-sp_ma="<?= $sp['sp_ma'] ?>">Xóa</button>
                                 </tr>
                             <?php endforeach ?>
+                            </tbody>
                         </table>
                 </div>
             </div>
@@ -121,5 +126,52 @@ EOT;
     <?php
          include_once( __DIR__ . '/../../layouts/js.php');
     ?>
+<!--   Datatabales js -->   
+    <script src="/Pushh/assects/vendor/DataTables/datatables.min.js"></script>
+    <script src="/Pushh/assects/vendor/DataTables/Buttons-1.6.3/js/buttons.bootstrap4.min.js"></script>
+    <script src="/Pushh/assects/vendor/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="/Pushh/assects/vendor/sweetalert/sweetalert.min.js"></script>
+
+    <script>
+   $(document).ready(function() {
+       
+        // Cảnh báo khi xóa
+        // 1. Đăng ký sự kiện click cho các phần tử (element) đang áp dụng class .btnDelete
+        $('.btnDelete').click(function() {
+            // Click hanlder
+            // Hiện cảnh báo khi bấm nút xóa
+            swal({
+                title: "Bạn có chắc chắn muốn xóa?",
+                text: "Một khi đã xóa, không thể phục hồi....",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                debugger;
+                if (willDelete) { // Nếu đồng ý xóa
+                    
+                    // 2. Lấy giá trị của thuộc tính (custom attribute HTML) 'sp_ma'
+                    // var sp_ma = $(this).attr('data-sp_ma');
+                    var sp_ma = $(this).data('sp_ma');
+                    var url = "delete.php?sp_ma=" + sp_ma;
+                    
+                    // Điều hướng qua trang xóa với REQUEST GET, có tham số sp_ma=...
+                    location.href = url;
+                } else {
+                    swal("Cẩn thận hơn !!!");
+                }
+            });
+           
+        });
+         // xử lý table danh sách
+         $('#tblDanhsach').DataTable({
+            dom: 'Blfrtip',
+            buttons: [
+                'copy', 'excel', 'pdf'
+            ]
+        });
+    });
+    </script>
 </body>
 </html>
