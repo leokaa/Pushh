@@ -9,23 +9,16 @@
 <body>
     <h1>Cập nhập Hình thức Thanh toán</h1>
     <?php
-    // Truy vấn database để lấy danh sách
-    // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
-    // C:\xampp\htdocs\web02\
-    include_once(__DIR__ . '/connect.php');
-    // 2. Chuẩn bị QUERY
+   
+    include_once(__DIR__.'/../../../connect.php');
     $httt_ma = $_GET['httt_ma'];
-    // HERE DOC
     $sqlSelect = <<<EOT
     SELECT httt_ma, httt_ten FROM `hinhthucthanhtoan` WHERE httt_ma = $httt_ma;
 EOT;
-    // 3. Yêu cầu PHP thực thi QUERY
-    $resultSelect = mysqli_query($conn, $sqlSelect);
-    // 4. Khi thực thi các truy vấn dạng SELECT, dữ liệu lấy về cần phải phân tích để sử dụng
-    // Thông thường, chúng ta sẽ sử dụng vòng lặp while để duyệt danh sách các dòng dữ liệu được SELECT
-    // Ta sẽ tạo 1 mảng array để chứa các dữ liệu được trả về
+    $result = mysqli_query($conn, $sqlSelect);
+    
     $htttRow = [];
-    while ($row = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC)) {
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $htttRow = array(
             'httt_ma' => $row['httt_ma'],
             'httt_ten' => $row['httt_ten'],
@@ -39,8 +32,7 @@ EOT;
     </form>
     <?php
     if(isset($_POST['btnSave'])) {
-        // 2. Chuẩn bị QUERY
-        // HERE DOC
+       
         $httt_ten = $_POST['httt_ten'];
         $sql = <<<EOT
         UPDATE `hinhthucthanhtoan`
@@ -48,9 +40,7 @@ EOT;
             httt_ten='$httt_ten'
         WHERE httt_ma=$httt_ma
 EOT;
-        // 3. Yêu cầu PHP thực thi QUERY
         mysqli_query($conn, $sql); 
-        // Redirect (điều hướng) về trang bạn mong muốn
        
     }
     ?>

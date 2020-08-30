@@ -12,15 +12,15 @@
         include_once(__DIR__.'/connect.php');
        
         $sql= <<<EOT
-        SELECT httt_ma as MaTTT, httt_ten as TenTTT
+        SELECT httt_ma , httt_ten 
         FROM hinhthucthanhtoan
 EOT;
         $data = [];
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $data [] = array(
-                'Ma'=> $row['MaTTT'],
-                'Ten'=> $row['TenTTT'],
+                'httt_ma'=> $row['httt_ma'],
+                'httt_ten'=> $row['httt_ten'],
             );
         }
 
@@ -33,10 +33,11 @@ EOT;
         </tr>
         <?php   foreach($data as $tt): ?>
             <tr>
-                <td> <?= $tt['Ma'] ?></td>
-                <td> <?= $tt['Ten'] ?></td>
+                <td> <?= $tt['httt_ma'] ?></td>
+                <td> <?= $tt['httt_ten'] ?></td>
                 <td>
-                    <a href="Delete.php?httt_ma=<?= $tt['Ma'];?>">Xóa</a>
+                    <a href="Delete.php?httt_ma=<?= $tt['httt_ma'];?>">Xóa</a>
+                    <a href="UpdateSL.php?httt_ma=<?= $tt['httt_ma'];?>">Sửa</a>
                    
                 </td>
             </tr>

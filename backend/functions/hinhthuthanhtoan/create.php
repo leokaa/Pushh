@@ -13,9 +13,9 @@
 </head>
 <body>
     <!-- Phần header -->
-   <?php
-    include_once( __DIR__ . '/../../layouts/partials/header.php');
-   ?> 
+        <?php
+        include_once( __DIR__ . '/../../layouts/partials/header.php');
+        ?> 
     <!-- header -->
 
 
@@ -30,53 +30,50 @@
                     <!-- Phần sidebar -->
                 </div>
                 <div class="col-md-8">
-                    Danh sách hình thức<br>
-                    <a href="/../../UpdateSL.php">Thêm hình thức</a>
-                    <?php
-                        include_once(__DIR__.'/../../../connect.php');
-       
-                    $sql= <<<EOT
-                    SELECT httt_ma as MaTTT, httt_ten as TenTTT
-                    FROM hinhthucthanhtoan
+                   <h3>Danh sách hình</h3>
+                   <a href="edit.php">Sửa thông tin </a>
+                        <?php
+                            include_once(__DIR__.'/../../../connect.php');
+                            $sql= <<<EOT
+                            SELECT httt_ma , httt_ten 
+                            FROM hinhthucthanhtoan
 EOT;
-                    $data = [];
-                    $result = mysqli_query($conn, $sql);
-                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                        $data [] = array(
-                            'Ma'=> $row['MaTTT'],
-                            'Ten'=> $row['TenTTT'],
-                        );
-                    }
+                            $data = [];
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                $data [] = array(
+                                    'httt_ma'=> $row['httt_ma'],
+                                    'httt_ten'=> $row['httt_ten'],
+                                );
+                            }
 
-                    ?>
-                    <table border="1">
-                        <tr>
-                            <th>Mã</th>
-                            <th>Tên</th>
-                            <th>Thực thi</th>
-                        </tr>
-                        <?php   foreach($data as $tt): ?>
+                        ?>
+                        <table border="1">
                             <tr>
-                                <td> <?= $tt['Ma'] ?></td>
-                                <td> <?= $tt['Ten'] ?></td>
-                                <td>
-                                    <a href="Delete.php?httt_ma=<?= $tt['Ma'];?>">Xóa</a>
-                                
-                                </td>
+                                <th>Mã</th>
+                                <th>Tên</th>
+                                <th>Thực thi</th>
                             </tr>
-                        <?php endforeach ?>
-                    </table>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                            <?php   foreach($data as $tt): ?>
+                                <tr>
+                                    <td> <?= $tt['httt_ma'] ?></td>
+                                    <td> <?= $tt['httt_ten'] ?></td>
+                                    <td>
+                                        <a href="Delete.php?httt_ma=<?= $tt['httt_ma'];?>">Xóa</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        </table>
+                </div>
+            </div>
+        </div>
                     <!-- sidebar -->
                 
     
     <!-- Phần footer -->
    <?php
-    include_once( __DIR__ . '/../../layouts/partials/footer.php');
-   ?> 
+        include_once( __DIR__ . '/../../layouts/partials/footer.php');
+    ?> 
     <!-- header -->
     
   
