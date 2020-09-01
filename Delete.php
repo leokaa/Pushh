@@ -11,7 +11,7 @@
     // Truy vấn database để lấy danh sách
     // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
     // C:\xampp\htdocs\web02\
-    include_once(__DIR__ . '/connect.php');
+    include_once(__DIR__ . '/../../connect.php');
     // 2. Chuẩn bị QUERY
     $httt_ma = $_GET['httt_ma'];    
     // HERE DOC

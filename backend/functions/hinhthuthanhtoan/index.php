@@ -58,7 +58,7 @@ EOT;
                                     <td> <?= $tt['httt_ma'] ?></td>
                                     <td> <?= $tt['httt_ten'] ?></td>
                                     <td>
-                                        <a href="/..Delete.php?httt_ma=<?= $tt['httt_ma'];?>">Xóa</a>
+                                        <a href="delete.php?httt_ma=<?= $tt['httt_ma'];?>">Xóa</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

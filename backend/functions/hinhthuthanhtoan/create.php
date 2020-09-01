@@ -31,7 +31,6 @@
                 </div>
                 <div class="col-md-8">
                    <h3>Danh sách hình</h3>
-                   <a href="edit.php">Sửa thông tin </a>
                         <?php
                             include_once(__DIR__.'/../../../connect.php');
                             $sql= <<<EOT
@@ -60,10 +59,11 @@ EOT;
                                     <td> <?= $tt['httt_ten'] ?></td>
                                     <td>
                                         <a href="Delete.php?httt_ma=<?= $tt['httt_ma'];?>">Xóa</a>
-                                    </td>
                                 </tr>
                             <?php endforeach ?>
                         </table>
+                        <a href="edit.php?httt_ma=<?= $tt['httt_ma'];?>">them thong tin</a>
+
                 </div>
             </div>
         </div>
