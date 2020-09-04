@@ -47,7 +47,10 @@ EOT;
                             }
 
                         ?>
-                        <a href="create.php">Thêm dữ liệu</a>
+                        <button type="button" class="btn btn-info">                        
+                            <a href="create.php">Thêm dữ liệu</a>
+                        </button>
+
                         <table border="1">
                             <tr>
                                 <th>Mã</th>
