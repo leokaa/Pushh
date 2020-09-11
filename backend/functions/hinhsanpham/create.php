@@ -100,7 +100,7 @@
                                 if (isset($_FILES['hsp_tentaptin'])) {
                                     // Đường dẫn để chứa thư mục upload trên ứng dụng web của chúng ta. Các bạn có thể tùy chỉnh theo ý các bạn.
                                     // Ví dụ: các file upload sẽ được lưu vào thư mục ../../../assets/uploads
-                                    $upload_dir = __DIR__ . "/../../../assects/uploads/";
+                                    $upload_dir = __DIR__ . "/../../../assects/uploads";
                                     // Các hình ảnh sẽ được lưu trong thư mục con `products` để tiện quản lý
                                     $subdir = 'products/';
                                     // Đối với mỗi file, sẽ có các thuộc tính như sau:
