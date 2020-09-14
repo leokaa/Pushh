@@ -25,11 +25,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <!-- Phần sidebar -->
+                    
                         <?php
                             include_once( __DIR__ . '/../../layouts/partials/sidebar.php');
                         ?> 
-                    <!-- Phần sidebar -->
+                   
                 </div>
                 <div class="col-md-8">
                    <h3>Danh sách hình san</h3>
@@ -107,7 +107,7 @@ EOT;
                 </div>       
             </div>
         </div>
-                    <!-- sidebar -->
+        <!-- sidebar -->
                 
     
     <!-- Phần footer -->

@@ -123,7 +123,7 @@ EOT;
                             $_SESSION['kh_tendangnhap_logged'] = $kh_tendangnhap;
                             echo 'Đăng nhập thành công!';
                             // Điều hướng (redirect) về trang chủ
-                            echo '<script>location.href = "/php/myhand/backend/pages/dashboard.php";</script>';
+                            echo '<script>location.href = "/Pushh/backend/pages/dashboard.php";</script>';
                         } else {
                             echo '<h2 style="color: red;">Đăng nhập thất bại!</h2>';
                         }
