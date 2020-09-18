@@ -13,7 +13,7 @@ if (session_id() === '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NenTang.vn</title>
     <!-- Nhúng file Quản lý các Liên kết CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../layouts/styles.php'); ?>
+    <?php include_once(__DIR__ . '/../layouts/style.php'); ?>
 </head>
 <body class="d-flex flex-column h-100">
     <!-- header -->
@@ -267,7 +267,7 @@ if (session_id() === '') {
     <?php include_once(__DIR__ . '/../layouts/partials/footer.php'); ?>
     <!-- end footer -->
     <!-- Nhúng file quản lý phần SCRIPT JAVASCRIPT -->
-    <?php include_once(__DIR__ . '/../layouts/scripts.php'); ?>
+    <?php include_once(__DIR__ . '/../layouts/js.php'); ?>
     <!-- Các file Javascript sử dụng riêng cho trang này, liên kết tại đây -->
     <script>
         // Đăng ký sự kiện Click nút Thêm Sản phẩm
