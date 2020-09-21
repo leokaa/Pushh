@@ -112,18 +112,23 @@ if (session_id() === '') {
                     $body = <<<EOT
                     <table border ="1">
                         <tr>
+                            <th>Ảnh điện dại</th>
+                            <th>Nội dung liên hệ</th>
+
+                        </tr>
+                        <tr>
                             <td>
-                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/L_Old_London.svg/1200px-L_Old_London.svg.png"  weight ="100px" high="200px" />
+                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/L_Old_London.svg/1200px-L_Old_London.svg.png"  width ="100px" heigh="200px" />
                             </td>
                             <td>
-                                Có người liên hệ cần giúp đỡ.
+                                Có người liên hệ cần giúp đỡ. <br />
+                                Email của khách: $email <br />
+                                Nội dung: $message
+                                <br />
                             </td>
                         </tr>
                     </table>
-       <br />
-        Email của khách: $email <br />
-        Nội dung: <br />
-        $message
+      
 EOT;
                     $mail->Body    = $body;
                     $mail->send();
